@@ -43,26 +43,25 @@ export default function Home() {
   }
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8 text-white">
-      <h1 className="text-5xl font-bold mb-4 text-white font-mono text-center">Aave vs Banks</h1>
-      <p className="text-lg mb-8 text-white opacity-80 font-sans text-center">Aave breaks into the top 40 U.S. banks by size.</p>
-      
       <div className="w-full max-w-2xl">
+        <h1 className="text-5xl font-bold mb-4 text-white font-mono text-left">Aave vs Banks</h1>
+        <p className="text-lg mb-8 text-white opacity-80 font-sans text-left">Aave breaks into the top 40 U.S. banks by size.</p>
         <table className="w-full border-collapse font-sans">
           <thead>
-            <tr className="border-b border-white/20">
-              <th className="text-left py-4 pr-8 text-white opacity-60 font-medium border-r border-white/20">Rank</th>
-              <th className="text-left py-4 px-8 text-white opacity-60 font-medium border-r border-white/20">Name</th>
-              <th className="text-right py-4 pl-8 text-white opacity-60 font-medium">Deposits</th>
+            <tr className="border-b-2 border-white/60">
+              <th className="text-left py-4 pr-8 text-white opacity-60 font-semibold border-r-2 border-white/60">Rank</th>
+              <th className="text-left py-4 px-8 text-white opacity-60 font-semibold border-r-2 border-white/60">Name</th>
+              <th className="text-right py-4 pl-8 text-white opacity-60 font-semibold">Deposits</th>
             </tr>
           </thead>
           <tbody className="text-white">
             {bankData.map((bank) => (
               <tr key={bank.rank} className={bank.isAave ? "bg-white/5" : ""}>
-                <td className={`py-3 pr-8 border-r border-white/20 ${bank.isAave ? "text-white font-medium" : "text-white opacity-80"}`}>
+                <td className={`py-3 pr-8 border-r-2 border-white/60 ${bank.isAave ? "text-white font-bold" : "text-white opacity-80 font-medium"}`}>
                   {bank.rank}
                 </td>
                 
-                <td className={`py-3 px-8 border-r border-white/20 ${bank.isAave ? "text-white font-medium" : "text-white opacity-80"}`}>
+                <td className={`py-3 px-8 border-r-2 border-white/60 ${bank.isAave ? "text-white font-bold" : "text-white opacity-80 font-medium"}`}>
                   {bank.isAave ? (
                     <div className="flex items-center h-full">
                       <Image
@@ -77,16 +76,15 @@ export default function Home() {
                     bank.name
                   )}
                 </td>
-                <td className={`text-right py-3 pl-8 ${bank.isAave ? "text-white font-medium" : "text-white opacity-80"}`}>
+                <td className={`text-right py-3 pl-8 ${bank.isAave ? "text-white font-bold" : "text-white opacity-80 font-medium"}`}>
                   {formatAssets(bank.assets)}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-      
-      <p className="mt-8 text-sm text-white opacity-60 font-sans text-center">
+        
+        <p className="mt-8 text-sm text-white opacity-60 font-sans text-left">
         Sources:{" "}
         <a
           href="https://www.federalreserve.gov/releases/lbr/current/"
@@ -105,7 +103,8 @@ export default function Home() {
         >
           Token Terminal
         </a>
-      </p>
+        </p>
+      </div>
     </div>
   );
 }

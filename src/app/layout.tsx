@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,9 +8,35 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  subsets: ["latin"],
+const ftRegola = localFont({
+  src: [
+    {
+      path: "../../public/assets/fonts/FTRegolaNeueTrial-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/FTRegolaNeueTrial-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/FTRegolaNeueTrial-Semibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/FTRegolaNeueTrial-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/FTRegolaNeueTrial-Heavy.otf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ft-regola",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
+        className={`${inter.variable} ${ftRegola.variable} antialiased`}
       >
         {children}
       </body>

@@ -9,7 +9,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-roboto-mono);
+  --font-mono: var(--font-ft-regola);
 }
 
 body {

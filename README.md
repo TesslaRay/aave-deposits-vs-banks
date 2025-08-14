@@ -2,7 +2,9 @@
 
 A real-time dashboard that compares **Aave's net deposits** with the consolidated assets of the **top 50 U.S. commercial banks**, showing exactly where Aave would rank if it were a traditional bank.
 
-![Stani's Challenge](./public/assets/stani-x-post.png)
+<div align="center">
+  <img src="./public/assets/stani-x-post.png" alt="Stani's Challenge" width="600">
+</div>
 
 This project was inspired by a challenge proposed by **Stani Kulechov** (founder of [Aave](https://aave.com)):
 
