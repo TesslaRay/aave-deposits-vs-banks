@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏦 Aave vs US Banks — Real-time Comparison Dashboard
 
-## Getting Started
+A real-time dashboard that compares **Aave's net deposits** with the consolidated assets of the **top 50 U.S. commercial banks**, showing exactly where Aave would rank if it were a traditional bank.
 
-First, run the development server:
+![Stani's Challenge](./public/assets/stani-x-post.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project was inspired by a challenge proposed by **Stani Kulechov** (founder of [Aave](https://aave.com)):
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> "Giving out 10 AAVE for anyone who builds this dashboard first."
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Features
 
-## Learn More
+- **Real-time Data**: Live scraping of current bank assets and Aave deposits
+- **Accurate Rankings**: Shows Aave's position among top 50 US banks by consolidated assets
+- **Beautiful Design**: Clean, modern interface with Roboto Mono and Inter fonts
+- **Live Sources**: Direct links to Federal Reserve and Token Terminal data
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔍 Data Collection Method
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses **web scraping** to gather real-time data from official sources:
 
-## Deploy on Vercel
+### 🏦 U.S. Bank Data
+- **Source**: [Federal Reserve LBR (Large Bank Report)](https://www.federalreserve.gov/releases/lbr/current/)
+- **Method**: Web scraping of consolidated assets data
+- **Coverage**: Top 50 US commercial banks by assets
+- **Data**: JPMorgan Chase ($3.6T), Bank of America ($2.5T), Wells Fargo ($1.9T), etc.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ⛓️ Aave Data  
+- **Source**: [Token Terminal - Aave Net Deposits](https://tokenterminal.com/explorer/projects/aave/metrics/net-deposits)
+- **Method**: Web scraping with API fallback
+- **Data**: Current net deposits (~$68.3B)
+- **Fallback**: Token Terminal API endpoint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 How It Works
+
+1. **Data Fetching**: 
+   - Scrapes Federal Reserve for real bank consolidated assets
+   - Scrapes Token Terminal for current Aave net deposits
+
+2. **Ranking Algorithm**:
+   - Sorts all banks by consolidated assets (descending)
+   - Inserts Aave at its correct position based on net deposits
+   - Shows banks ±5 positions around Aave for context
+
+3. **Real-time Display**:
+   - Loading state: "Loading data onchain and from Federal Reserve..."
+   - Dynamic table showing accurate rankings
+   - Aave highlighted with logo and styling
+
+---
