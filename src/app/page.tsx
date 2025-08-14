@@ -59,17 +59,17 @@ export default function Home() {
             {bankData.map((bank) => (
               <tr key={bank.rank} className={bank.isAave ? "bg-white/5" : ""}>
                 <td className={`py-3 pr-8 border-r border-white/20 ${bank.isAave ? "text-white font-medium" : "text-white opacity-80"}`}>
-                  {bank.rank} {bank.isAave && <span className="text-white/50 text-sm font-normal">▲ 3</span>}
+                  {bank.rank}
                 </td>
                 
-                <td className={`py-3 px-8 border-r border-white/20 ${bank.isAave ? "text-white font-medium flex items-center" : "text-white opacity-80"}`}>
+                <td className={`py-3 px-8 border-r border-white/20 ${bank.isAave ? "text-white font-medium flex items-center justify-center" : "text-white opacity-80"}`}>
                   {bank.isAave ? (
                     <Image
                       src="/assets/aave-light.png"
                       alt="Aave logo"
-                      width={100}
-                      height={100}
-                      className="inline"
+                      width={80}
+                      height={30}
+                      className="object-contain"
                     />
                   ) : (
                     bank.name
@@ -85,7 +85,24 @@ export default function Home() {
       </div>
       
       <p className="mt-8 text-sm text-white opacity-60 font-sans text-center">
-        Source: https://www.federalreserve.gov/releases/lbr/current/
+        Sources:{" "}
+        <a
+          href="https://www.federalreserve.gov/releases/lbr/current/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-white/80 underline"
+        >
+          Federal Reserve
+        </a>
+        {" & "}
+        <a
+          href="https://tokenterminal.com/explorer/projects/aave/metrics/net-deposits"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-white/80 underline"
+        >
+          Token Terminal
+        </a>
       </p>
     </div>
   );
